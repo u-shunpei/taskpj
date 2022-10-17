@@ -15,6 +15,10 @@ Route::post('folders/create', [FolderController::class, 'create']);
 Route::get('/folders/{id}/tasks/create', [TaskController::class, 'showCreateForm'])->name('tasks.create');
 Route::post('/folders/{id}/tasks/create', [TaskController::class, 'create']);
 
+//タスク編集ページ表示、タスク編集処理を実行
+Route::get('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'showEditForm'])->name('tasks.edit');
+Route::post('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'edit']);
+
 Route::get('/', function () {
     return view('welcome');
 });
