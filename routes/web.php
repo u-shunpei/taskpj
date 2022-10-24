@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\FolderController;
+use App\Http\Controllers\HomeController;
 
 //一覧画面
 Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');
@@ -19,12 +20,14 @@ Route::post('/folders/{id}/tasks/create', [TaskController::class, 'create']);
 Route::get('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'showEditForm'])->name('tasks.edit');
 Route::post('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'edit']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', function () {
+    return view('home');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

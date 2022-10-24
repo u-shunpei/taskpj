@@ -15,14 +15,24 @@ class FoldersTableSeeder extends Seeder
      */
     public function run()
     {
-        $titles = ['プライベート', '仕事', '旅行'];
-
-        foreach ($titles as $title) {
-            DB::table('folders')->insert([
-                'title' => $title,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
-        }
+//        $user = DB::table('users')->get(); // ★
+//
+//        $titles = ['プライベート', '仕事', '旅行'];
+//
+//        foreach ($titles as $title) {
+//            $param = [
+//                'title' => $title,
+//                'user_id' => $user->id, // ★
+//                'created_at' => Carbon::now(),
+//                'updated_at' => Carbon::now(),
+//            ];
+//            DB::table('folders')->insert($param);
+//            DB::table('folders')->insert([
+//                'title' => $title,
+//                'user_id' => $user->id, // ★
+//                'created_at' => Carbon::now(),
+//                'updated_at' => Carbon::now(),
+//            ]);
+//        }
     }
 }
